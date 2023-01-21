@@ -9,7 +9,7 @@ import { Chat } from './chat';
 })
 export class ChatComponent implements OnInit {
 
-  constructor(
+constructor(
 		private intentService: IntentService
 	) { }
 
@@ -21,7 +21,7 @@ export class ChatComponent implements OnInit {
 	send(inputMessage: HTMLInputElement):void {
 		this.chats.push({message: inputMessage.value, userType: "HUMAN"});
 		this.intentService.ask({message:inputMessage.value, userType:"HUMAN"}).subscribe(
-		  (response) => {
+		(response) => {
 				console.log(response);
 				this.chats.push({message: response.message, userType: "AGENT"})
 			}
